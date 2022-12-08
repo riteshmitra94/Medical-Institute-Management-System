@@ -1,0 +1,59 @@
+{% extends 'institutions/main.html' %}
+
+{% block content %}
+
+<div class="container text-center mt-3 mb-3">
+    <div class="row align-items-start">
+      <div class="col">
+        <div class="card">
+            <div class="card-body">
+                Total Institutions Enrolled : {{total_institutions}}
+            </div>
+        </div>
+      </div>
+      <div class="col">
+        
+      </div>
+      <div class="col">
+        <div class="card">
+            <div class="card-body">
+                Active Institutions : {{active_institutions}}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-header">
+            <h5>View all the institutions here</h5>
+        </div>
+        <div class="card card-body">
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+
+                {% for i in institutions%}
+                    <tr>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'institute' i.id %}">View</a></td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.address}}</td>
+                        <td>{{i.status}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.phone}}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'institutions/main.html' %}
+
+{% block content %}
+
+<div class="mx-auto my-3 card text-center" style="width: 70%">
+    <div class="card-header fs-2">
+        <h4>Add a new Institute<h4>
+    </div>
+    <div class=" card-body text-center container py-4">
+        <form action="" method="POST">
+            {%csrf_token%}
+            
+            {{form.as_p}}
+            
+            <div class="row mx-auto" style="width: 40%">
+                <div class="col-form-label">
+                    <input class="btn btn-primary" type="submit" name="Submit">
+                </div>
+                <div class="col-form-label">
+                    <a href="javascript:history.go(-1)" class="btn btn-danger" type="button" name="Cancel">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
